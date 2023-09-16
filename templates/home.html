@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<center><img src="static/images/unnamed.JPG" alt="" style="width: 300px; height:300px;"></center>
+<br>
+<br>
+{% if show==True %}
+<center>
+    <style>
+        body {
+			background: url('https://img.freepik.com/free-photo/health-still-life-with-copy-space_23-2148854031.jpg') no-repeat center center fixed;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		} </style>
+
+    {% if message=="healthy" %}
+    <h3><span class="badge badge-success">{{message}}</span></h3>
+    {%endif%}
+
+    {% if message=="pneumonic" %}
+    <h3><span class="badge badge-danger">{{message}}</span></h3>
+    {%endif%}
+    <br>
+    <br>
+
+    <a href="/pneuform" class="btn btn-info" role="button">Go Back</a>
+</center>
+{% else %}
+<center>
+    <form action="/pneu" method="POST" enctype="multipart/form-data">
+        <label for="file">Please Upload Image for Chest X-Ray: </label>
+        <input type="file" name="img" id="img">
+        <br><br><center><button type="submit" class="btn btn-primary ml-3">Submit</button></center>
+    </form>
+     
+    <br>
+    <br>
+    {{message}}
+    <form action="/pa2" method="post">
+        <button type="submit"  class="btn btn-primary ml-3">Back</button></form>
+</center>
+{% endif %}
+{% endblock%}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covid Disease Predictor</title>
+  <link rel="stylesheet" href="css/indexlogin.css">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<style>
+/* Your existing styles... */
+
+/* Beautiful Background */
+body {
+  background-image: url('https://img.freepik.com/free-photo/medicine-capsules-global-health-with-geometric-pattern-digital-remix_53876-126742.jpg?w=826&t=st=1693377062~exp=1693377662~hmac=63cb2211a86983ffc90d1e007eb553f33594039e5968a02bb1b987b8ac74c43e.jpg'); /* Replace with your hospital-related background image URL */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Form Box */
+.form-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* Form Table */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.form-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-table th {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Enhanced Form Styling */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-button {
+  background-color: #11afd2;
+  border: 2px solid #000000;
+  border-radius: 1000px;
+  box-shadow: 3px 3px #8c8c8c;
+  padding: 10px 36px;
+  color: #000000;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #141414;
+  border-color: #46424b;
+}
+
+</style>
+
+<body>
+  <div class="container">
+    <h1 class='container-heading'><span class="heading_font"><center>Covid 19 Disease Predictor</span></h1></center>
+    <div class='description'></div>
+  </div>
+  
+  <div class="ml-container">
+    <div class="form-box">
+      <form action="/predict_2" method="POST">
+        <table class="form-table">
+          <tr>
+            <th><label for="Fever">Fever value</label></th>
+            <td><input class="form-input" type="text" id="Fever" name="Fever" placeholder="Enter your fever value"></td>
+          </tr>
+          <tr>
+            <th><label for="Age">Age</label></th>
+            <td><input class="form-input" type="text" id="Age" name="Age" placeholder="Enter your age"></td>
+          </tr>
+          <tr>
+            <th><label for="BodyPain">Body pain</label></th>
+            <td>
+              <select class="form-select" id="BodyPain" name="BodyPain">
+                <option value="0">No Pain</option>
+                <option value="1">Severe Pain</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="RunnyNose">Running nose</label></th>
+            <td>
+              <select class="form-select" id="RunnyNose" name="RunnyNose">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="DiffBreath">Breathing difficulty</label></th>
+            <td>
+              <select class="form-select" id="DiffBreath" name="DiffBreath">
+                <option value="-1">No difficulty</option>
+                <option value="0">Little difficulty</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="ChestPain">Chest pain</label></th>
+            <td>
+              <select class="form-select" id="ChestPain" name="ChestPain">
+                <option value="-1">No pain</option>
+                <option value="0">Little pain</option>
+                <option value="1">Severe pain</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+        <div class="form-button-container">
+          <input class="form-button" type="submit" value="Predict"></form>
+          <form action="/pa2" method ="post">
+            <input class="form-button" type="submit" value="Back"></form>
+        </div>
+    </div>
+  </div>
+
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank"></a>
+      <a target="_blank"></a>
+    </div>
+    <p class='footer-description'></p>
+  </div>
+</body>
+
+</html>

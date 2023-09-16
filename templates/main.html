@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Predictor</title>
+  <link rel="stylesheet" href="css/indexlogin.css">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<style>
+/* Your existing styles... */
+
+/* Beautiful Background */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('https://img.freepik.com/free-photo/medicine-capsules-global-health-with-geometric-pattern-digital-remix_53876-126742.jpg?w=826&t=st=1693377062~exp=1693377662~hmac=63cb2211a86983ffc90d1e007eb553f33594039e5968a02bb1b987b8ac74c43e.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Website Title */
+.container {
+  padding: 30px;
+  position: relative;
+  background: linear-gradient(45deg, #11b6c5,  #11b6c5,  #11b6c5);
+  background-size: 500% 500%;
+  animation: change-gradient 10s ease-in-out infinite;
+}
+
+/* ... rest of your styles ... */
+
+/* Form Styling */
+.ml-container {
+  margin: 30px 0;
+  flex: 1 0 auto;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.form-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-table th {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-button {
+  background-color:  #11b6c5;
+  border: 2px solid #000000;
+  border-radius: 1000px;
+  box-shadow: 3px 3px #8c8c8c;
+  padding: 10px 36px;
+  color: #000000;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #141414;
+  border-color: #46424b;
+}
+</style>
+
+<body>
+  <!-- Website Title -->
+  <div class="container">
+    <h2 class='container-heading'><span class="heading_font">HEART DISEASE PREDICTOR</span></h2>
+    <div class='description'></div>
+  </div>
+
+  <!-- Form Area -->
+  <div class="ml-container">
+    <div class="form-box">
+      <form action="/predict" method="POST">
+        <table class="form-table">
+          <tr>
+            <th><label for="age">Age</label></th>
+            <td><input class="form-input" type="text" id="age" name="age" placeholder="Your age.."></td>
+          </tr>
+          <tr>
+            <th><label for="sex">Sex</label></th>
+            <td>
+              <select class="form-select" id="sex" name="sex">
+                <option selected>----select option----</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="cp">Chest Pain Type</label></th>
+            <td>
+              <select class="form-select" id="cp" name="cp">
+                <option selected>----select option----</option>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-anginal Pain</option>
+                <option value="3">Asymptomatic</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="trestbps">Resting Blood Pressure</label></th>
+            <td><input class="form-input" type="number" id="trestbps" name="trestbps" placeholder="A number in range [94-200] mmHg"></td>
+          </tr>
+          <tr>
+            <th><label for="chol">Serum Cholesterol</label></th>
+            <td><input class="form-input" type="text" id="chol" name="chol" placeholder="A number in range [126-564] mg/dl"></td>
+          </tr>
+          <tr>
+            <th><label for="fbs">Fasting Blood Sugar</label></th>
+            <td>
+              <select class="form-select" id="fbs" name="fbs">
+                <option selected>----select option----</option>
+                <option value="1">Greater than 120 mg/dl</option>
+                <option value="0">Less than 120 mg/dl</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="restecg">Resting ECG Results</label></th>
+            <td>
+              <select class="form-select" id="restecg" name="restecg">
+                <option selected>----select option----</option>
+                <option value="0">Normal</option>
+                <option value="1">Having ST-T wave abnormality</option>
+                <option value="2">Probable or definite left ventricular hypertrophy</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="thalach">Max Heart Rate</label></th>
+            <td><input class="form-input" type="text" id="thalach" name="thalach" placeholder="A number in range [71-202] bpm"></td>
+          </tr>
+          <tr>
+            <th><label for="exang">Exercise-induced Angina</label></th>
+            <td>
+              <select class="form-select" id="exang" name="exang">
+                <option selected>----select option----</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="oldpeak">ST depression</label></th>
+            <td><input class="form-input" type="text" id="oldpeak" name="oldpeak" placeholder="ST depression, typically in [0-6.2]"></td>
+          </tr>
+          <tr>
+            <th><label for="slope">Slope of the Peak Exercise ST Segment</label></th>
+            <td>
+              <select class="form-select" id="slope" name="slope">
+                <option selected>----select option----</option>
+                <option value="0">Upsloping</option>
+                <option value="1">Flat</option>
+                <option value="2">Downsloping</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="ca">Number of Major Vessels</label></th>
+            <td><input class="form-input" type="text" id="ca" name="ca" placeholder="Typically in [0-4]"></td>
+          </tr>
+          <tr>
+            <th><label for="thal">Thalassemia</label></th>
+            <td>
+              <select class="form-select" id="thal" name="thal">
+                <option selected>----select option----</option>
+                <option value="0">Normal</option>
+                <option value="1">Fixed Defect</option>
+                <option value="2">Reversible Defect</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+        <div class="form-button-container">
+          <input class="form-button" type="submit" value="Predict"></form>
+          <form action='/pa2' method="post">
+          <input class="form-button" type="submit" value="Back"></form>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank"></a>
+      <a target="_blank"></a>
+    </div>
+    <p class='footer-description'></p>
+  </div>
+</body>
+
+</html>
